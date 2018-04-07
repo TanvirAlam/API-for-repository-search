@@ -61,45 +61,6 @@ abstract class SearchRepository implements RepositoryInterface
         ];
     }
 
-    public abstract function getSearchResults($search, $sort, $order, $perPage, $pageNumber);
-    protected abstract function setBaseApiUrl();
-    protected abstract function getFormatedJsonData($responseObject);
-
-    protected function setSearch($search)
-    {
-        if ($search) {
-            $this->setParameter('q', $search . '+in:file');
-            return true;
-        }
-        return false;
-    }
-
-    protected function setParameter($key, $value)
-    {
-        if (substr($this->baseApiUrl, -1) == '?') {
-            return $this->baseApiUrl .= $key . '=' . $value;
-        }
-        return $this->baseApiUrl .= '&' . $key . '=' . $value;
-    }
-
-    protected function setConditions($conditions)
-    {
-        foreach($conditions as $key => $value) {
-            if($this->checkConditionIsValid($key, $value)) {
-                $this->setParameter($key, $value);
-            }
-        }
-        return true;
-    }
-
-    protected function setValidConditions()
-    {
-        $this->validConditions = [
-            'sort' => ['stars', 'forks', 'updates', 'score'],
-            'order' => ['asc', 'desc'],
-        ];
-    }
-
     protected function checkConditionIsValid($key, $value)
     {
         foreach ($this->validConditions as $validConditionKey => $validConditionValue) {
