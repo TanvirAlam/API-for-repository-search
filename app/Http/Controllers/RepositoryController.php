@@ -2,23 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\Contracts\CategoryRepository;
-use Illuminate\Http\Request;
+use App\Repositories\Eloquent\GitHub;
 
 class RepositoryController extends Controller
 {
-    /**
-     * @var CategoryRepository
-     */
-    private $category;
+    private $repository;
 
-    /**
-     * RepositoryController constructor.
-     *
-     * @param CategoryRepository $category
-     */
-    public function __construct(CategoryRepository $category)
+    public function __construct(GitHub $repository)
     {
-        $this->category = $category;
+        $this->repository = $repository;
+    }
+
+    public function github($query, $sort = null, $order = null, $perPage = null, $pageNumber = null)
+    {
+        return $this->repository->getSearchResults($query, $sort, $order, $perPage, $pageNumber);
     }
 }
