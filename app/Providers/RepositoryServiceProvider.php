@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Repositories\Contracts\CategoryRepository;
+use App\Repositories\Contracts\RepositoryInterface;
 use App\Repositories\Eloquent\GitHub;
 use Illuminate\Support\ServiceProvider;
 
@@ -11,7 +11,7 @@ class RepositoryServiceProvider extends ServiceProvider
     protected $defer = true;
 
     protected $repositoryMap = [
-        CategoryRepository::class => GitHub::class
+        RepositoryInterface::class => GitHub::class
     ];
 
     /**
