@@ -9,7 +9,7 @@ class GitHub extends SearchRepository
 {
     public function getSearchResults($search, $sort, $order, $perPage, $pageNumber)
     {
-        return $this->getSearchResult(
+        return $this->passCredentials(
             Config::get('services.github.username'),
             Config::get('services.github.token'),
             $search,
