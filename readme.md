@@ -15,7 +15,7 @@ You need to make sure to perform all these actions to see the results:
 - Setup docker (http://laradock.io/)
 - Configure the .env file
 - Sample routes for searching on Github:
-  - `http://localhost/api/search/repository/github/{keyword}/`
+  - `http://localhost/api/search/repository/github/{keyword}`
   - `http://localhost/api/search/repository/github/{keyword}/{sort}/{order}/{perPage}/{pageNumber}/`
 
 ####Technologies used
@@ -29,4 +29,3 @@ Technologies used for development:
 - [php]()
 - [Docker](http://laradock.io/)
 - [npm](https://www.npmjs.com/)
-
