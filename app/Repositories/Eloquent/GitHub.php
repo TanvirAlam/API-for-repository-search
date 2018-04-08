@@ -35,7 +35,7 @@ class GitHub extends SearchRepository
                 'Repository' => $item['repository']['name'],
                 'File' => $item['html_url'],
             ];
-        })->jsonSerialize();
-        return $searchResult;
+        });
+        return $searchResult->toArray();
     }
 }

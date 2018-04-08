@@ -101,9 +101,14 @@ abstract class SearchRepository implements RepositoryInterface
 
     private function setURL($sort, $order, $perPage, $pageNumber)
     {
-        $this->baseApiUrl .= '&sort=' . $sort ?: $this->defaultSort;
-        $this->baseApiUrl .= '&order=' . $order ?: $this->defaultOrder;
-        $this->baseApiUrl .= '&per_page=' . $perPage ?: $this->defaultPerPage;
-        $this->baseApiUrl .= '&page=' . $pageNumber ?: $this->defaultPageNumber;
+        $sort = ! empty($sort) ? $sort : $this->defaultSort;
+        $order = ! empty($order) ? $order : $this->defaultOrder;
+        $perPage = ! empty($perPage) ? $perPage: $this->defaultPerPage;
+        $pageNumber = ! empty($pageNumber) ? $pageNumber : $this->defaultPageNumber;
+
+        $this->baseApiUrl .= '&sort=' . $sort;
+        $this->baseApiUrl .= '&order=' . $order;
+        $this->baseApiUrl .= '&per_page=' . $perPage;
+        $this->baseApiUrl .= '&page=' . $pageNumber;
     }
 }
