@@ -15,8 +15,8 @@ You need to make sure to perform all these actions to see the results:
 - Setup docker (http://laradock.io/)
 - Configure the .env file
 - Sample routes for searching on Github:
-  - localhost/api/search/github/keyword1
-  - localhost/api/search/github/keyword2?sort=forks&order=asc&page=12&per_page=3
+  - `http://localhost/api/search/repository/github/{keyword}/`
+  - `http://localhost/api/search/repository/github/{keyword}/{sort}/{order}/{perPage}/{pageNumber}/`
 
 ####Technologies used
 Technologies used for development:
