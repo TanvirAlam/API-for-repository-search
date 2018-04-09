@@ -15,8 +15,6 @@ class RepositoryController extends Controller
 
     public function github($query, $sort = null, $order = null, $perPage = null, $pageNumber = null)
     {
-        $displayData = $this->repository->getSearchResults($query, $sort, $order, $perPage, $pageNumber);
-
-        print("<pre>".print_r($displayData,true)."</pre>");
+        return $this->repository->getSearchResults($query, $sort, $order, $perPage, $pageNumber);
     }
 }

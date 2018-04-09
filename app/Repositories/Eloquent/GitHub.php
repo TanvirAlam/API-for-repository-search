@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Eloquent;
 
+use App\Transformers\GithubTransformer;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Config;
 
@@ -36,6 +37,6 @@ class GitHub extends SearchRepository
                 'File' => $item['html_url'],
             ];
         });
-        return $searchResult->toArray();
+        return fractal($searchResult, new GithubTransformer())->respond();//$searchResult->toArray();
     }
 }
